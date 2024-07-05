@@ -1,4 +1,5 @@
 import 'package:feedis/auth/auth.dart';
+import 'package:feedis/page/home.dart';
 import 'package:feedis/page/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +15,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ScreenUtilInit(designSize: Size(315, 812), child: AuthPage()),
+      //home: ScreenUtilInit(designSize: Size(315, 812), child: AuthPage()),
+      home: HomePage(),
     );
   }
 }
