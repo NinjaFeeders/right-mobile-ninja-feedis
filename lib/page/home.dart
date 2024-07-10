@@ -22,8 +22,18 @@ class _HomePageState extends State<HomePage> {
   void initState(){
     super.initState();
     pc = PageController(initialPage: pageAtual);
+    
   }
+
+  setPageAtual(page){
+    setState(() {
+      pageAtual = page;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: PageView(
         controller: pc,
@@ -33,6 +43,23 @@ class _HomePageState extends State<HomePage> {
           PrivatePage(),
           ConfigPage(),
         ],
+
+        onPageChanged: setPageAtual,
+        
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: pageAtual,
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.black,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Feedis'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Conexões'),
+          BottomNavigationBarItem(icon: Icon(Icons.lock), label: 'Privado'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Configurações')
+        ],
+        onTap: (pageAtual){
+          pc.animateToPage(pageAtual, duration: Duration(milliseconds: 400), curve: Curves.ease);
+        },
       ),
     );
   }
