@@ -24,7 +24,7 @@ class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin {
         ),
         body: ListView.separated(itemBuilder: (BuildContext context, int message){
           return ListTile(
-            leading: Image.asset(feedMessage[message].icon),
+            leading: Image.asset(feedMessage[message].icon, height: 40,),
             title: Text(feedMessage[message].user),
             subtitle: Text(feedMessage[message].title),
             isThreeLine: true,
