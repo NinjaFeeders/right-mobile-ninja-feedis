@@ -25,7 +25,7 @@ class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin {
         ),
         body: ListView.separated(itemBuilder: (BuildContext context, int message){
           return FeedStruct(userName: feedMessage[message].user, title: feedMessage[message].title, isPrivate: feedMessage[message].status, content: feedMessage[message].bodyMessage,
-          );
+          likes: feedMessage[message].likes, deslikes: feedMessage[message].deslikes);
         },
          padding:  EdgeInsets.all(16), separatorBuilder: (_, __) => Divider(), itemCount: feedMessage.length),
         floatingActionButton: FloatingActionButton(

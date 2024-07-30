@@ -9,12 +9,16 @@ class FeedStruct extends StatelessWidget {
   final String title;
   final bool isPrivate;
   final String content;
+  final String likes;
+  final String deslikes;
 
   FeedStruct({
     required this.userName,
     required this.title,
     required this.isPrivate,
     required this.content,
+    required this.likes,
+    required this.deslikes,
     super.key
 });
 
@@ -63,8 +67,8 @@ class FeedStruct extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                FeedButton(icon: Icons.thumb_down, activeColor: Colors.black, inactiveColor: Colors.grey, text: '2'),
-                FeedButton(icon: Icons.thumb_up, activeColor: Colors.black, inactiveColor: Colors.grey, text: '2')
+                FeedButton(icon: Icons.thumb_down, activeColor: Colors.black, inactiveColor: Colors.grey, text: deslikes),
+                FeedButton(icon: Icons.thumb_up, activeColor: Colors.black, inactiveColor: Colors.grey, text: likes)
               ],
             ),
           ],
