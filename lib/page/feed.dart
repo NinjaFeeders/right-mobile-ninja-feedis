@@ -1,3 +1,4 @@
+import 'package:feedis/components/feed_struct.dart';
 import 'package:feedis/repository/colector.dart';
 import 'package:flutter/material.dart';
 
@@ -23,12 +24,7 @@ class _FeedPageState extends State<FeedPage> with TickerProviderStateMixin {
           title: const Text('Feed principal'),
         ),
         body: ListView.separated(itemBuilder: (BuildContext context, int message){
-          return ListTile(
-            leading: Image.asset(feedMessage[message].icon),
-            title: Text(feedMessage[message].user),
-            subtitle: Text(feedMessage[message].title),
-            isThreeLine: true,
-            trailing: Text(feedMessage[message].status),
+          return FeedStruct(userName: feedMessage[message].user, title: feedMessage[message].title, isPrivate: feedMessage[message].status, content: feedMessage[message].bodyMessage,
           );
         },
          padding:  EdgeInsets.all(16), separatorBuilder: (_, __) => Divider(), itemCount: feedMessage.length),

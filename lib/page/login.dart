@@ -1,6 +1,7 @@
+import 'package:feedis/backend/api_user.dart';
+import 'package:feedis/constants/path_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 class LoginPage extends StatefulWidget {
   final VoidCallback show;
   const LoginPage(this.show, {super.key});
@@ -23,14 +24,14 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             // Espaço em branco
-            SizedBox(width: 96.w, height: 100.h),
+            SizedBox(width: 96.w, height: 70.h),
             // Centralizar a logo
             Center(
-              child: Image.asset('images/logo_2lower.png'),
+              child: Image.asset(PathConstants.logoLogin),
             ),
             // outro espaço em branco
-            SizedBox(height: 120.h),
-            TextInput(enterID, Icons.person, 'Usuario', enterID_F),
+            SizedBox(height: 28.h),
+            UserInput(),
             SizedBox(height: 30.h),
             TextInput(password, Icons.lock, 'Senha', password_F),
             SizedBox(height: 10.h),
@@ -44,6 +45,8 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+  Widget UserInput() => TextInput(enterID, Icons.person, 'Usuario', enterID_F);
 
   Widget Dont() {
     return Padding(
@@ -77,20 +80,26 @@ class _LoginPageState extends State<LoginPage> {
   Widget Login() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10.w),
+      child: InkWell(
+        onTap: () async { 
+           await ApiClient().postUserLogin(enterID.text, password.text, context);
+        },
       child: Container(
         alignment: Alignment.center,
         width: double.infinity,
         height: 44.h,
         decoration: BoxDecoration(
-            color: Colors.black, borderRadius: BorderRadius.circular(10.r)),
+        color: Colors.black, borderRadius: BorderRadius.circular(10.r)),
         child: Text('Entrar',
             style: TextStyle(
               fontSize: 23.sp,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             )),
-      ),
-    );
+            
+
+        ),
+    ));
   }
 
   Widget Forgot() {

@@ -7,10 +7,13 @@ environment:
   sdk: '>=3.4.1 <4.0.0'
 
 dependencies:
+  dio: ^5.5.0+1
+  expandable_text: ^2.3.0
   flutter:
     sdk: flutter
   # add flutter_screenutil
   flutter_screenutil: ^5.9.3
+  http: ^1.2.1
 
 dev_dependencies:
   flutter_test:
