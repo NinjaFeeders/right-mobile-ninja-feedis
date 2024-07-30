@@ -24,13 +24,13 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             // Espaço em branco
-            SizedBox(width: 96.w, height: 100.h),
+            SizedBox(width: 96.w, height: 70.h),
             // Centralizar a logo
             Center(
               child: Image.asset(PathConstants.logoLogin),
             ),
             // outro espaço em branco
-            SizedBox(height: 120.h),
+            SizedBox(height: 28.h),
             UserInput(),
             SizedBox(height: 30.h),
             TextInput(password, Icons.lock, 'Senha', password_F),

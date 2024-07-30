@@ -5,7 +5,7 @@ class Message{
  String user;
  String title;
  String bodyMessage;
- String status;
+ bool status;
 
  Message({
   required this.icon,
